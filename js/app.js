@@ -77,7 +77,9 @@ function loadFeed(id, cb) {
         if (cb) {
             cb();
         }
+
     });
+
 }
 
 /* Google API: Loads the Feed Reader API and defines what function

@@ -27,11 +27,11 @@
         </div>
 
         <div class="menu hidden">
-            <ul class="feed-list"></ul>
+            <ul class="feed-list"> <!-- heres where li go from ln44 --></ul>
         </div>
 
         <div class="feed"></div>
-
+        <!-- adds links the the main part -->
         <script class="tpl-entry" type="text/x-handlebars-template">
             <a class="entry-link" href="{{link}}">
                 <article class="entry">
@@ -40,7 +40,7 @@
                 </article>
             </a>
         </script>
-
+        <!-- Adds links to the menu -->
         <script class="tpl-feed-list-item" type="text/x-handlebars-template">
             <li>
                 <a href="#" data-id="{{id}}">{{name}}</a>
