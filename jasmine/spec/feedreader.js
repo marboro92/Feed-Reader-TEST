@@ -70,14 +70,23 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
         //created a function called click that triggers a click on the menu icon to use in the folllowing test
-        var click = function() {
+        var clickMenu = function() {
                         $('.menu-icon-link').trigger('click');
                     };
+        
         it('toggles when clicked', function(){
-            click();  
+            clickMenu();  
             expect($('body').hasClass('menu-hidden')).toBe(false);
-            click();
+            clickMenu();
             expect($('body').hasClass('menu-hidden')).toBe(true);     
+        });
+
+        /* My proposed additional test: 
+        To test whether the menu closes when a link in the menu is clicked*/
+        it('disappears on navigation', function(){
+            clickMenu();
+            $('.feed-list li a').trigger('click');
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
     });
     /*new test suite named "Initial Entries" */

@@ -1,3 +1,23 @@
+# ABOUT THIS PROJECT
+I completed javascript test suites using jasmine.js for a simple application that reads RSS feeds.
+
+# HOW TO VIEW THIS PROJECT
+1. Download all files and open index.html.
+2. See the passed specs on this page
+3. See the written tests in jasmine/specs/feedreader.js
+
+# TESTS BUILT BY ME
+to ensure the following:
+1. All feeds have a URL defined
+2. All feeds have a title
+3. The menu is hidden by default
+4. the menu is toggled open/closed on click
+5. atleast one feed is loaded
+6. content is updated when the feeds load
+*7. Additional proposed test: Checks that the menu is hidden when a link is clicked in the menu (found on ln 86)
+
+All Above test found in jasmine/specs/feedreader.js
+
 # Project Overview
 
 In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
