@@ -7,7 +7,7 @@ I completed javascript test suites using jasmine.js for a simple application tha
 3. See the written tests in jasmine/specs/feedreader.js
 
 # TESTS BUILT BY ME
-to ensure the following:
+Tests written to check the following:
 1. All feeds have a URL defined
 2. All feeds have a title
 3. The menu is hidden by default
@@ -16,7 +16,7 @@ to ensure the following:
 6. content is updated when the feeds load
 *7. Additional proposed test: Checks that the menu is hidden when a link is clicked in the menu (found on ln 86)
 
-All Above test found in jasmine/specs/feedreader.js
+All above tests found in jasmine/specs/feedreader.js
 
 # Project Overview
 
