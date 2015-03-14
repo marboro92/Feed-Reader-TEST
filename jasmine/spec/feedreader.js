@@ -125,4 +125,13 @@ $(function() {
             expect($('.feed a:nth-child(1)')).not.toEqual($('.feed a:nth-child(2)'));
         });       
     });
+    /*ANOTHER test for future functionality to 
+    highlight the most recent article from each blog, uncomment when ready to start building*/
+
+    // describe('Newest Article', function(){
+    //     it('is highlighted', function(){
+    //         expect($('.feed a:nth-child(1)').hasClass('highlighted')).toBe(true);
+    //     })
+    // }) 
+
 }());
