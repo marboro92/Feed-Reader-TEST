@@ -34,7 +34,8 @@ $(function() {
         it('have URLs',function(){
             for (i = 0; i<allFeeds.length; i++) {
                 expect(allFeeds[i].url).toBeDefined();
-            };
+                expect(allFeeds[i].url.length).not.toBe(0);
+            }
         });
 
 
@@ -47,7 +48,7 @@ $(function() {
                 expect(allFeeds[i].name).toBeDefined();
                 expect(allFeeds[i].name).not.toBe(0);
             }
-        })
+        });
     });
 
 
@@ -107,23 +108,35 @@ $(function() {
             done();
         });
     });
-    /* A new test suite named "New Feed Selection"*/
-    describe('New Feed Selection', function() {
-        //load two feeds to compare before the test
-        beforeEach(function(done) {
-            loadFeed(0);
-            loadFeed(1);
+    /*new test suite named "New Feed Selection" */
+    describe('New Feed Selection', function(){
+     /* Remember, loadFeed() is asynchronous.
+     */
+        var container = $('.feed').html();
+        var feed = [];
+        beforeEach(function(done){
+            loadFeed(0, function() {
+                done();
+            });
+        }); 
+    /* A test that ensures when a new feed is loaded
+     * by the loadFeed function that the container is not empty or
+      content is added.*/
+        it('content is present', function(done){
+            var container = $('.feed').html()q;
+            expect(container.length).not.toBe(0);
             done();
         });
-
-    /* A test that ensures when a new feed is loaded
-     * by the loadFeed function that the content actually changes.
-     * Remember, loadFeed() is asynchronous.
-     */
-        //compare the loaded links of the first piece of content loaded with the second
-        it('content actually changes', function() {
-            expect($('.feed a:nth-child(1)')).not.toEqual($('.feed a:nth-child(2)'));
-        });       
+    /* A test that ensures that the new feed is actually new/ not identical to the last one.*/
+        it('loaded feeds are not identical', function(done){
+            var container = $('.feed').html();
+            loadFeed(1, function() {
+                var container1 = $('.feed').html();
+                expect(container).not.toEqual(container1);
+                done();
+            });
+            
+        });
     });
     /*ANOTHER test for future functionality to 
     highlight the most recent article from each blog, uncomment when ready to start building*/
@@ -131,7 +144,7 @@ $(function() {
     // describe('Newest Article', function(){
     //     it('is highlighted', function(){
     //         expect($('.feed a:nth-child(1)').hasClass('highlighted')).toBe(true);
-    //     })
-    // }) 
+    //     });
+    // }); 
 
 }());
