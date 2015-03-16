@@ -104,7 +104,7 @@ $(function() {
             });
         });
         it('has atleast one entry on load', function(done){
-            expect($('.feed a').children().hasClass('entry')).toBe(true);
+            expect( $('.feed').find('.entry').length ).toBeGreaterThan(0);
             done();
         });
     });
@@ -112,30 +112,36 @@ $(function() {
     describe('New Feed Selection', function(){
      /* Remember, loadFeed() is asynchronous.
      */
-        var container = $('.feed').html();
-        var feed = [];
+       // container will store html
+        var container = '';
+       // feedNum will indicate which feed to load
+        var feedNum = 0;
+
         beforeEach(function(done){
-            loadFeed(0, function() {
+          //if a feed was already loades by the first test empty that feed
+            if (feedNum>0) {
+              $('.feed').empty();
+            }
+          //load new feed
+            loadFeed(feedNum, function() {
                 done();
             });
         }); 
-    /* A test that ensures when a new feed is loaded
+    /* A test that  first ensures when a new feed is loaded
      * by the loadFeed function that the container is not empty or
       content is added.*/
         it('content is present', function(done){
-            var container = $('.feed').html()q;
+          //store HTML of the feed in the container variable
+            container = $('.feed').html();
             expect(container.length).not.toBe(0);
+            //change feed num after first test
+            feedNum= 1- feedNum;
             done();
         });
-    /* A test that ensures that the new feed is actually new/ not identical to the last one.*/
+    /* A second test that ensures that the new feed is actually new/ not identical to the last one.*/
         it('loaded feeds are not identical', function(done){
-            var container = $('.feed').html();
-            loadFeed(1, function() {
-                var container1 = $('.feed').html();
-                expect(container).not.toEqual(container1);
-                done();
-            });
-            
+            expect( $('.feed').html() ).not.toEqual(container);
+            done(); 
         });
     });
     /*ANOTHER test for future functionality to 
